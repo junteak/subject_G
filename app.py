@@ -3,7 +3,7 @@
 toDo Add,Upd ユーザー名の重複を許可しない。
 todo 年齢のところ 文字、少数、受け入れない。
 toDo Add,Upd,delete の名前のところで、数字をうけつけないようにする。
-toDo 個人削除のところで名前をいれなくてもコマンドが通る。実在しないユーザー。直すべき。
+
 
 
 rowに自動的にidを取得するコマンド https://www.dbonline.jp/sqlite/table/index9.html
@@ -13,6 +13,7 @@ rowに自動的にidを取得するコマンド https://www.dbonline.jp/sqlite/t
 import sys
 
 from add import add
+from check_module import username_list
 from dl_all import dl_all
 from dl_indivisualll import dl_indivisual
 from show import show
@@ -20,7 +21,7 @@ from upd import upd
 
 
 def main():
-    global upd_name
+
     print('''
 ==== Welcome to CRM application ====
  [S]how: Show all users info
@@ -48,9 +49,13 @@ def main():
                 print(" Username can't be blank.")
                 main()
 
-            elif len(name) >= 20:
+            if len(name) >= 20:
 
                 print(" Username must be less than 20 letters")
+
+            if name in username_list():
+
+                print(" Username can't be duplicated")
 
             else:
 

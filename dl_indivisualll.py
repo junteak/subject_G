@@ -1,18 +1,22 @@
 import sqlite3
 
+from check_module import username_list
+
 
 def dl_indivisual():
+
     while True:
 
         dl_user = input('\n Who dou you want to delete? > ')
 
-        if len(dl_user) >= 20:
+        # nullかスペースか
+        if len(dl_user) == 0 or dl_user.isspace() or len(dl_user) >= 20:
+            print(' The username was not found.')
 
-            print(" Username should be less than 20 letters")
+        # ユーザーの中に入力した人がいなかったら
+        if dl_user not in username_list():
 
-        elif len(dl_user) == 0 or dl_user.isspace():
-
-            print(' Username should not be blank. ')
+            print(' The username was not found.')
 
         else:
             break
