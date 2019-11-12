@@ -87,17 +87,12 @@ def main():
 
         pre_name = input('\n Who you want to update? > ')
 
-        # if len(pre_name) == 0 or pre_name.isspace():
-        #
-        #     print(" Username can't be blank.")
-        #     main()
-
         if pre_name not in username_list():
 
             print(" Username doesn't exist")
             main()
 
-        elif pre_name in username_list():
+        if pre_name in username_list():
 
             while True:
 
