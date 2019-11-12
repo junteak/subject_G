@@ -1,10 +1,7 @@
 '''
 
-toDo Add,Upd ユーザー名の重複を許可しない。
 todo 年齢のところ 文字、少数、受け入れない。
 toDo Add,Upd,delete の名前のところで、数字をうけつけないようにする。
-
-
 
 rowに自動的にidを取得するコマンド https://www.dbonline.jp/sqlite/table/index9.html
 
@@ -90,11 +87,17 @@ def main():
 
         pre_name = input('\n Who you want to update? > ')
 
-        if len(pre_name) == 0 or pre_name.isspace():
+        # if len(pre_name) == 0 or pre_name.isspace():
+        #
+        #     print(" Username can't be blank.")
+        #     main()
 
-            print(" Username can't be blank.")
+        if pre_name not in username_list():
 
-        else:
+            print(" Username doesn't exist")
+            main()
+
+        elif pre_name in username_list():
 
             while True:
 
