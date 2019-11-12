@@ -1,11 +1,12 @@
 '''
 
-toDo Add,Upd,delete で名前以外をうけつけない (数字、、スペース、文字制限)
-toDo Add,Upd ユーザー名の重複を許可しない
-toDo 年齢、整数かどうかの判断
+toDo Add,Upd ユーザー名の重複を許可しない。
+todo 年齢のところ 文字、少数、受け入れない。
+toDo Add,Upd,delete の名前のところで、数字をうけつけないようにする。
+toDo 個人削除のところで名前をいれなくてもコマンドが通る。実在しないユーザー。直すべき。
+
 
 rowに自動的にidを取得するコマンド https://www.dbonline.jp/sqlite/table/index9.html
-
 
 '''
 
@@ -19,6 +20,7 @@ from upd import upd
 
 
 def main():
+    global upd_name
     print('''
 ==== Welcome to CRM application ====
  [S]how: Show all users info
@@ -31,6 +33,7 @@ def main():
     command = input(' Your Command > ')
 
     if command == 's' or command == 'S':
+
         show()
         main()
 
@@ -65,7 +68,7 @@ def main():
 
                 age = int(str_age)
 
-                if int(str_age) >= 0 and int(str_age) <= 150:
+                if age >= 0 and age <= 150:
 
                     break
 
@@ -116,7 +119,7 @@ def main():
 
                 upd_age = int(str_upd_age)
 
-                if int(str_upd_age) >= 0 and int(str_upd_age) <= 150:
+                if upd_age >= 0 and upd_age <= 150:
 
                     break
 
@@ -130,14 +133,15 @@ def main():
     if command == 'd' or command == 'D':
 
         print('\n 1.Delete individually 2.Delete all')
-        num = int(input(' Command > '))
+        num = input(' Your command > ')
 
-        if num == 1:
+        if num == '1':
+
             show()
             dl_indivisual()
             main()
 
-        if num == 2:
+        if num == '2':
 
             dl_all()
             main()
