@@ -1,7 +1,5 @@
 '''
 
-# toDo 年齢のところ 文字、少数、受け入れない。
-
 rowに自動的にidを取得するコマンド https://www.dbonline.jp/sqlite/table/index9.html
 
 '''
