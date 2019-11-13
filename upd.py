@@ -8,4 +8,5 @@ def upd(pre_name, upd_age, upd_name):
     cursor.execute(sql)
     connection.commit()
     connection.close()
+
     print(f'\n updated Name: {upd_name} | Age {upd_age}')

@@ -42,19 +42,18 @@ def main():
 
             if len(name) == 0 or name.isspace():  # 何も文字がないかlen(name) == 0、空白だった場合 issapse()
 
-                print(" Username can't be blank.")
+                print(" 'Username can't be blank.'")
                 main()
 
             if len(name) >= 20:
-
-                print(" Username must be less than 20 letters")
+                print(" 'Username must be less than 20 letters'")
 
             if name in username_list():
-                print(" Username can't be overlapped")
+                print(" 'Username can't be overlapped.'")
 
             if name.isdigit():  # 数字かどうか判断
 
-                print(" User name must be consisted by letters.")
+                print(" 'User name must be consisted by letters.'")
 
             else:
 
@@ -66,12 +65,11 @@ def main():
             str_age = input(" New user age is... > ")
 
             if len(str_age) == 0 or str_age.isspace():
-
-                print(" Age can't be blank.")
+                print(" 'Age can't be blank.'")
 
             if not str_age.isdecimal():  # 数字でなければ
 
-                print(' Age must be Arabic Positive Numerals')
+                print(" 'Age must be Arabic Positive Numerals'")
 
             else:
 
@@ -83,7 +81,7 @@ def main():
                     break
 
                 else:
-                    print(' Enter the correct age.')  # 正の数字でなければ
+                    print(" 'Enter the correct age.'")  # 正の数字でなければ
 
         add(age, name)
 
@@ -97,7 +95,7 @@ def main():
 
         if pre_name not in username_list():
 
-            print(" Username doesn't exist")
+            print(" 'Username doesn't exist.'")
             main()
 
         elif pre_name in username_list():  # なぜここは if ではなく elif でないといけないか
@@ -108,15 +106,14 @@ def main():
 
                 if len(upd_name) == 0 or upd_name.isspace():  # 何も文字がないかlen(name) == 0、空白だった場合 issapse()
 
-                    print(" Username can't be blank.")
+                    print(" 'Username can't be blank.'")
 
                 if len(upd_name) >= 20:
-
-                    print(" Username must be less than 20 letters")
+                    print(" 'Username must be less than 20 letters'")
 
                 if upd_name.isdigit():  # 数字かどうか判断
 
-                    print(" User name must be consisted by letters.")
+                    print(" 'User name must be consisted by letters.'")
 
                 else:
 
@@ -127,12 +124,11 @@ def main():
             str_upd_age = input(" New user age is... > ")
 
             if len(str_upd_age) == 0 or str_upd_age.isspace():
-
-                print(" Age can't be blank.")
+                print(" 'Age can't be blank.'")
 
             if not str_upd_age.isdecimal():  # 数字でなければ
 
-                print(' Age must be Arabic Positive Numerals')
+                print(" 'Age must be Arabic Positive Numerals'")
 
             else:
 
@@ -143,7 +139,7 @@ def main():
                     break
 
                 else:
-                    print(' Enter the correct age.')
+                    print(" 'Enter the correct age.'")
 
         upd(pre_name, upd_age, upd_name)
 
@@ -167,7 +163,7 @@ def main():
 
         else:
 
-            print(' Command not found.')
+            print(" 'Command not found.'")
             main()
 
     if command == 'f' or command == 'F':  # 終了
@@ -200,7 +196,7 @@ def main():
 
 
     else:
-        print(' Command not found.')
+        print(" 'Command not found.'")
         main()
 
 

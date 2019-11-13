@@ -11,12 +11,12 @@ def dl_indivisual():
 
         # nullかスペースか
         if len(dl_user) == 0 or dl_user.isspace() or len(dl_user) >= 20:
-            print(' The username was not found.')
+            print(" 'The username was not found.'")
 
         # ユーザーの中に入力した人がいなかったら
         if dl_user not in username_list():
 
-            print(' The username was not found.')
+            print(" 'The username was not found.'")
 
         else:
             break

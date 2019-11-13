@@ -8,4 +8,5 @@ def add(age, name):
     cursor.execute(sql, (name, age))
     connection.commit()
     connection.close()
+
     print(f' added {name}, {age}-year-old')
