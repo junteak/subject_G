@@ -1,12 +1,12 @@
 '''
 
-todo 年齢のところ 文字、少数、受け入れない。
-toDo Add,Upd,delete の名前のところで、数字をうけつけないようにする。
+# toDo 年齢のところ 文字、少数、受け入れない。
 
 rowに自動的にidを取得するコマンド https://www.dbonline.jp/sqlite/table/index9.html
 
 '''
 
+import sqlite3
 import sys
 
 from add import add
@@ -25,6 +25,7 @@ def main():
  [A]dd new user
  [U]pdate the existing user
  [D]elete the exsisting user
+ [F]ind User
  [Q]uit CRM app
 ====================================''')
 
@@ -54,9 +55,14 @@ def main():
 
                 print(" Username can't be duplicated")
 
+            if name.isdigit():  # 数字かどうか判断
+
+                print(" User name must be consisted by letters.")
+
             else:
 
                 break
+
 
         while True:
 
@@ -66,16 +72,21 @@ def main():
 
                 print(" Age can't be blank.")
 
+            if not str_age.isdecimal():  # 数字でなければ
+
+                print(' Age must be Arabic Positive Numerals')
+
             else:
 
                 age = int(str_age)
+
 
                 if age >= 0 and age <= 150:
 
                     break
 
                 else:
-                    print(' Enter the correct age.')
+                    print(' Enter the correct age.')  # 正の数字でなければ
 
         add(age, name)
 
@@ -92,7 +103,7 @@ def main():
             print(" Username doesn't exist")
             main()
 
-        if pre_name in username_list():
+        elif pre_name in username_list():  # なぜここは if ではなく elif でないといけないか
 
             while True:
 
@@ -102,9 +113,13 @@ def main():
 
                     print(" Username can't be blank.")
 
-                elif len(upd_name) >= 20:
+                if len(upd_name) >= 20:
 
                     print(" Username must be less than 20 letters")
+
+                if upd_name.isdigit():  # 数字かどうか判断
+
+                    print(" User name must be consisted by letters.")
 
                 else:
 
@@ -117,6 +132,10 @@ def main():
             if len(str_upd_age) == 0 or str_upd_age.isspace():
 
                 print(" Age can't be blank.")
+
+            if not str_upd_age.isdecimal():  # 数字でなければ
+
+                print(' Age must be Arabic Positive Numerals')
 
             else:
 
@@ -152,6 +171,25 @@ def main():
         else:
 
             print(' Command not found.')
+            main()
+
+    if command == 'f' or command == 'F':  # 終了
+
+        find_name = input('\n Who you want to find? > ')
+
+        if find_name not in username_list():
+            print(f" {find_name} doesn't exist")
+            main()
+
+        if find_name in username_list():
+            print()
+            connection = sqlite3.connect('CRM_App.db')
+            cursor = connection.cursor()
+            sql = f"SELECT name, age FROM list WHERE name = '{find_name}'"
+            user_tuple = cursor.execute(sql).fetchone()  # fetchoneにすると単体のタプルが取得できる
+            connection.close()
+            user_list = list(user_tuple)
+            print(f" Name: {user_list[0]} | Age: {user_list[1]}")
             main()
 
     if command == 'q' or command == 'Q':  # 終了
