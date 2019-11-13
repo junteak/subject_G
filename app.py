@@ -178,7 +178,7 @@ def main():
             print(f" {find_name} doesn't exist")
             main()
 
-        if find_name in username_list():
+        elif find_name in username_list():
             print()
             connection = sqlite3.connect('CRM_App.db')
             cursor = connection.cursor()
