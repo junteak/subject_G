@@ -16,7 +16,6 @@ from upd import upd
 
 
 def main():
-
     print('''
 ==== Welcome to CRM application ====
  [S]how: Show all users info
@@ -30,7 +29,6 @@ def main():
     command = input(' Your Command > ')
 
     if command == 's' or command == 'S':
-
         show()
         main()
 
@@ -45,20 +43,19 @@ def main():
                 print(" 'Username can't be blank.'")
                 main()
 
-            if len(name) >= 20:
+            elif len(name) >= 20:
                 print(" 'Username must be less than 20 letters'")
 
-            if name in username_list():
+            elif name in username_list():
                 print(" 'Username can't be overlapped.'")
 
-            if name.isdigit():  # 数字かどうか判断
+            elif name.isdigit():  # 数字かどうか判断
 
                 print(" 'User name must be consisted by letters.'")
 
             else:
 
                 break
-
 
         while True:
 
@@ -67,14 +64,13 @@ def main():
             if len(str_age) == 0 or str_age.isspace():
                 print(" 'Age can't be blank.'")
 
-            if not str_age.isdecimal():  # 数字でなければ
+            elif not str_age.isdecimal():  # 数字でなければ
 
                 print(" 'Age must be Arabic Positive Numerals'")
 
             else:
 
                 age = int(str_age)
-
 
                 if age >= 0 and age <= 150:
 
@@ -108,10 +104,10 @@ def main():
 
                     print(" 'Username can't be blank.'")
 
-                if len(upd_name) >= 20:
+                elif len(upd_name) >= 20:
                     print(" 'Username must be less than 20 letters'")
 
-                if upd_name.isdigit():  # 数字かどうか判断
+                elif upd_name.isdigit():  # 数字かどうか判断
 
                     print(" 'User name must be consisted by letters.'")
 
@@ -126,7 +122,7 @@ def main():
             if len(str_upd_age) == 0 or str_upd_age.isspace():
                 print(" 'Age can't be blank.'")
 
-            if not str_upd_age.isdecimal():  # 数字でなければ
+            elif not str_upd_age.isdecimal():  # 数字でなければ
 
                 print(" 'Age must be Arabic Positive Numerals'")
 
@@ -151,7 +147,6 @@ def main():
         num = input(' Your command > ')
 
         if num == '1':
-
             show()
             dl_indivisual()
             main()
