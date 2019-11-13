@@ -12,4 +12,4 @@ def show():
     for indivisual_info in users_list_tuple:
         list(indivisual_info)
         print(f' Name: {indivisual_info[1]} / '
-              f'age: {indivisual_info[2]}')
+              f'Age: {indivisual_info[2]}')
