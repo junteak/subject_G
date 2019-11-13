@@ -50,8 +50,7 @@ def main():
                 print(" Username must be less than 20 letters")
 
             if name in username_list():
-
-                print(" Username can't be duplicated")
+                print(" Username can't be overlapped")
 
             if name.isdigit():  # 数字かどうか判断
 
@@ -64,7 +63,7 @@ def main():
 
         while True:
 
-            str_age = input(" New user age... > ")
+            str_age = input(" New user age is... > ")
 
             if len(str_age) == 0 or str_age.isspace():
 
@@ -125,7 +124,7 @@ def main():
 
         while True:
 
-            str_upd_age = input(" New user age... > ")
+            str_upd_age = input(" New user age is... > ")
 
             if len(str_upd_age) == 0 or str_upd_age.isspace():
 
